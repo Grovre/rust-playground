@@ -1,3 +1,4 @@
+use std::fmt::{Display, Formatter};
 use crate::geometry2d::point::Point;
 
 pub struct Line {
@@ -23,7 +24,7 @@ impl Line {
         (-(self.P1.X - self.P2.X)) / (self.P1.Y - self.P2.Y)
     }
 
-    pub fn is_parallel(&self, other: Self) -> bool {
+    pub fn is_parallel(&self, other: &Self) -> bool {
         self.slope() == other.slope()
     }
 
@@ -35,5 +36,11 @@ impl Line {
 impl Clone for Line {
     fn clone(&self) -> Self {
         Line::new(&self.P1, &self.P2)
+    }
+}
+
+impl Display for Line {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}<--->{}, D: {}", self.P1, self.P2, self.Length)
     }
 }
