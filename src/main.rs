@@ -1,3 +1,5 @@
+mod geometry2d;
+
 use std::fmt::Display;
 
 fn main() {
