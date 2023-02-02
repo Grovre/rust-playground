@@ -2,9 +2,7 @@ mod geometry2d;
 
 use std::fmt::Display;
 
-fn main() {
-
-}
+fn main() {}
 
 fn print_array<T>(array: &[T])
 where
