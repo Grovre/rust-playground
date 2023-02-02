@@ -4,5 +4,6 @@ mod.rs is and why I can't just do
 `mod point;` in main.rs
  */
 
-mod line;
-mod point;
+pub(crate) mod line;
+pub(crate) mod point;
+pub(crate) mod shapes;
