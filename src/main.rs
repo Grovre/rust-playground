@@ -20,8 +20,6 @@ fn main() {
     vec_l.push(p1);
     vec_l.push(p2);
     print_array(&vec_l);
-
-
 }
 
 fn print_array<T>(array: &[T])

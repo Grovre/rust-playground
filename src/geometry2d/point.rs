@@ -1,19 +1,19 @@
-use std::fmt::{Display, format, Formatter};
 use crate::geometry2d::line::Line;
+use std::fmt::{Display, Formatter};
 
 pub struct Point {
-    pub X: f32,
-    pub Y: f32,
+    pub x: f32,
+    pub y: f32,
 }
 
 impl Point {
     pub fn new(x: f32, y: f32) -> Self {
-        Point { X: x, Y: y }
+        Point { x, y }
     }
 
     pub fn distance(&self, other: &Self) -> f32 {
-        let xx = (self.X - other.X) * (self.X - other.X);
-        let yy = (self.Y - other.Y) * (self.Y - other.Y);
+        let xx = (self.x - other.x) * (self.x - other.x);
+        let yy = (self.y - other.y) * (self.y - other.y);
         (xx + yy).sqrt()
     }
 
@@ -39,12 +39,12 @@ impl Point {
 
 impl Clone for Point {
     fn clone(&self) -> Self {
-        Point::new(self.X, self.Y)
+        Point::new(self.x, self.y)
     }
 }
 
 impl Display for Point {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "({}, {})", self.X, self.Y)
+        write!(f, "({}, {})", self.x, self.y)
     }
 }
