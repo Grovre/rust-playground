@@ -1,8 +1,6 @@
 use rand::random;
 use utils::array_utils::array_to_string;
 
-use crate::utils::array_utils;
-
 mod utils;
 
 const LEN: usize = 5_000;
