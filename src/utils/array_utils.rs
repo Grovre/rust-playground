@@ -1,6 +1,6 @@
-use std::fmt::{format, Display};
+use std::{fmt::{Display}, thread::available_parallelism, borrow::Borrow};
 
-pub fn print_array<T>(array: &[T]) -> String
+pub fn array_to_string<T>(array: &[T]) -> String
 where
     T: Display,
 {
@@ -13,4 +13,19 @@ where
     }
 
     str
+}
+
+pub fn max_iter<T>(array: &[T]) -> &T where T: Ord {
+    array.iter().max().unwrap()
+}
+
+pub fn max<T>(array: &[T]) -> &T where T: Ord {
+    let mut max = &array[0];
+    for el in array {
+        if max < el {
+            max = el;
+        }
+    }
+
+    max
 }
