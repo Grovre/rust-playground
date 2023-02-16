@@ -35,3 +35,23 @@ where
 
     max
 }
+
+pub fn max_with_keys<T>(array: &[T], key_extractor: fn(o: &T) -> usize) -> &T {
+    let mut max = &array[0];
+    let mut max_key = key_extractor(&array[0]);
+    for el in array {
+        let usz = key_extractor(el);
+        if max_key < usz {
+            max_key = usz;
+            max = el;
+        }
+    }
+
+    max
+}
+
+pub fn counting_sort<T>(_array: &[T], _key_extractor: fn(o: &T) -> usize)
+where
+    T: Ord,
+{
+}
